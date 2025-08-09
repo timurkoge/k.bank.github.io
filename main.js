@@ -29,7 +29,7 @@ function update() {
                     newOperation.className = 'opperation_block';
                     newOperation.innerHTML = `
                         <div class="opperation_icon">
-                            <img class="opperation_image" src="images/${opType === "p" ? 'plus' : 'minus'}.png" alt="">
+                            <img class="opperation_image" src="${opType === "p" ? 'plus' : 'minus'}.png" alt="">
                         </div>
                         <div class="opperation_info">
                             <h2 class="opperation_user">${opName}</h2>
@@ -123,5 +123,6 @@ function openCheck(sender, receiver, amount, time) {
 function closeCheck() {
     document.querySelector(".check").style.display = "none";
 }
+
 
 document.getElementById("exit_check_btn").addEventListener('click', closeCheck);
