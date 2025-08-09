@@ -1,0 +1,516 @@
+
+html {
+	box-sizing: border-box;
+    scroll-behavior: smooth; /* Плавная прокрутка */
+}
+
+/* Создаём невидимый псевдоэлемент с отступом */
+.target-with-offset::before {
+  content: "";
+  display: block;
+  height: 200px; /* Высота отступа */
+  margin-top: -200px; /* Смещаем вверх */
+  visibility: hidden;
+  display: none;
+}
+
+/* Добавьте этот новый стиль */
+:target {
+  scroll-margin-top: 200px; /* Высота вашего header'а + дополнительный отступ */
+}
+
+*, 
+*::after, 
+*::before {
+	box-sizing: inherit;
+}
+
+body {
+	font-family: Kristal;
+    font-size: 30px;
+}
+
+
+
+@font-face {
+    font-family: Kristal;
+    src: url(Kristal_Sans.ttf);
+}
+
+
+
+/*------------------------- login -------------------------*/
+
+#login {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#login_form {
+    box-shadow: 0px 7.5px 10px rgba(28, 26, 26, 0.5);
+    padding: 45px;
+    border-radius: 20px;
+    background-color: #fcfcfc;
+    width: 400px;
+    text-align: center;
+}
+
+button#login_btn {
+    margin-top: 20px;
+    background: linear-gradient(to right, 
+        #00bfff 0%, 
+        #ff0000 25%, 
+        #ff8000 50%, 
+        #fff200 75%, 
+        #11ff00 100%);
+    padding: 10px;
+    border: none;
+    color: #fff;
+    font-size: 30px;
+    border-radius: 10px;
+    font-family: Kristal;
+    transition: all 0.1s ease-in;
+}
+
+button#login_btn:hover {
+    margin-top: 20px;
+    background: linear-gradient(to right, 
+        hsl(195, 100%, 45%) 0%, 
+        hsl(0, 100%, 45%) 25%, 
+        hsl(30, 100%, 45%) 50%, 
+        hsl(57, 100%, 45%) 75%, 
+        hsl(116, 100%, 45%) 100%);
+    padding: 10px;
+    border: none;
+    color: #fff;
+    font-size: 30px;
+    border-radius: 15px;
+    font-family: Kristal;
+    transition: all 0.1s ease-in;
+}
+button#login_btn:active {
+    margin-top: 20px;
+    background-color: rgb(0, 121, 162);
+    padding: 10px;
+    border: none;
+    color: #fff;
+    font-size: 30px;
+    border-radius: 7px;
+    font-family: Kristal;
+    transition: all 0.1s ease-in;
+}
+
+.header--user_autentification_menu {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.user-menu {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#user--icon {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.username {
+    font-weight: bold;
+    color: #2d3748;
+}
+
+.exit_btn {
+    background: #ff0000;
+    padding: 8px 15px;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 8px;
+    font-family: Kristal;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.exit_btn:hover {
+    background: #cc0000;
+    transform: translateY(-2px);
+}
+
+/*---------------------------- header ----------------------------*/
+
+
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+ul {
+	list-style: none;
+}
+
+.header {
+    z-index: 10;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    box-shadow: 0px 7.5px 10px rgba(28, 26, 26, 0.5);
+}
+
+.header--icon {
+    height: 120px;
+    width: auto;
+    border: none;
+    border-radius: none;
+} 
+
+.container {
+	max-width: 1240px;
+	margin: 0 auto;
+	padding-left: 20px;
+	padding-right: 20px;
+	text-align: center;
+}
+
+.header--inner {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	min-height: 140px;
+}
+
+.header--list {
+	display: flex;
+	align-items: center;
+	gap: 0 65px;
+}
+.header--user_autentification_menu {
+	align-items: center;
+    display: flex;
+    justify-content: space-between;
+    gap: 0 10px;
+}
+
+
+
+
+/*------------------------- main -------------------------*/
+
+
+main {
+    margin-top: 240px;
+}
+
+.block {
+    box-shadow: 0px 7.5px 10px rgba(28, 26, 26, 0.5);
+    padding: 45px;
+    border-radius: 20px;
+    background-color: #fcfcfc;
+    margin-bottom: 50px;
+}
+
+.description {
+    margin-top: 0px;
+    background: linear-gradient(to right, 
+        #00bfff 0%, 
+        #ff0000 25%, 
+        #ff8000 50%, 
+        #fff200 75%, 
+        #11ff00 100%);
+    padding: 15px;
+    border: none;
+    color: #fff;
+    border-radius: 20px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    text-align: center;
+    max-width: fit-content;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Дополнительные эффекты */
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+
+/*----------------------- card-info -----------------------*/
+
+
+.card_image {
+    border-radius: 20px;
+    max-width: 200px;
+}
+
+.card_info {
+    display: flex;
+}
+
+.card_sum {
+    margin-left: 30px;
+}
+
+.card_sum h2 {
+    margin: 0px;
+}
+
+/*----------------------- transfer -----------------------*/
+
+input {
+    padding: 5px;
+    border-radius: 8px;
+    font-family: Kristal;
+    font-size: 30px;
+}
+
+.input {
+    margin: 5px;
+    margin-left: 20px;
+}
+
+button.transfer {
+    margin-top: 20px;
+    background: linear-gradient(to right, 
+        #00bfff 0%, 
+        #ff0000 25%, 
+        #ff8000 50%, 
+        #fff200 75%, 
+        #11ff00 100%);
+    padding: 10px;
+    border: none;
+    color: #fff;
+    font-size: 30px;
+    border-radius: 10px;
+    font-family: Kristal;
+    transition: all 0.1s ease-in;
+}
+
+button.transfer:hover {
+    margin-top: 20px;
+    background: linear-gradient(to right, 
+        hsl(195, 100%, 45%) 0%, 
+        hsl(0, 100%, 45%) 25%, 
+        hsl(30, 100%, 45%) 50%, 
+        hsl(57, 100%, 45%) 75%, 
+        hsl(116, 100%, 45%) 100%);
+    padding: 10px;
+    border: none;
+    color: #fff;
+    font-size: 30px;
+    border-radius: 15px;
+    font-family: Kristal;
+    transition: all 0.1s ease-in;
+}
+button.transfer:active {
+    margin-top: 20px;
+    background-color: rgb(0, 121, 162);
+    padding: 10px;
+    border: none;
+    color: #fff;
+    font-size: 30px;
+    border-radius: 7px;
+    font-family: Kristal;
+    transition: all 0.1s ease-in;
+}
+
+
+/*---------------------- opperations ----------------------*/
+
+.opperation_block {
+    box-shadow: 0px 7.5px 10px rgba(28, 26, 26, 0.5);
+    padding: 45px;
+    border-radius: 20px;
+    background-color: #fcfcfc;
+    margin-top: 50px;
+    display: flex;
+}
+
+.opperation_image {
+    border-radius: 50%;
+    max-width: 100px;
+}
+
+.minus {
+    margin: 0;
+    font-size: 40px;
+    color: rgb(217, 0, 0);
+}
+
+.plus {
+    margin: 0;
+    font-size: 40px;
+    color: green;
+}
+
+.opperation_info {
+    margin-left: 30px;
+}
+
+.opperation_user {
+    margin: 0px;
+}
+
+
+
+/*------------------------ group ------------------------*/
+
+qr-code {
+    margin: auto;
+    width: 300px;
+}
+
+a.link {
+    position: relative;
+    text-decoration: none;
+}
+
+.gradient-text {
+    background: linear-gradient(to right, 
+        #00bfff 0%, 
+        #ff0000 25%, 
+        #ff8000 50%, 
+        #fff200 75%, 
+        #11ff00 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+}
+
+a.link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, 
+        #00bfff 0%, 
+        #ff0000 25%, 
+        #ff8000 50%, 
+        #fff200 75%, 
+        #11ff00 100%);
+    transition: all 0.3s ease;
+}
+
+a.link:hover::after {
+    height: 3px;
+    bottom: -3px;
+}
+
+.qr_img {
+    width: 50px;
+}
+
+
+/*------------------------ check ------------------------*/
+
+
+.check_table h2 {
+    display: flex;
+    justify-content: space-around;
+}
+
+.check_table_1 {
+    text-align: end;
+    padding-right: 10px;
+}
+.check_table_2 {
+    text-align: start;
+    padding-left: 10px;
+}
+
+.check {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    z-index: 9999;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.check_block {
+    box-shadow: 0px 7.5px 10px rgba(28, 26, 26, 0.5);
+    padding: 45px;
+    border-radius: 20px;
+    background-color: #fcfcfc;
+    width: 400px;
+    text-align: center;
+}
+.check_table{
+    table-layout: fixed;
+    width: 100%;
+}
+
+
+button#exit_check_btn {
+    margin-top: 20px;
+    background: linear-gradient(to right, 
+        #00bfff 0%, 
+        #ff0000 25%, 
+        #ff8000 50%, 
+        #fff200 75%, 
+        #11ff00 100%);
+    padding: 10px;
+    border: none;
+    color: #fff;
+    font-size: 30px;
+    border-radius: 10px;
+    font-family: Kristal;
+    transition: all 0.1s ease-in;
+}
+
+button#exit_check_btn:hover {
+    margin-top: 20px;
+    background: linear-gradient(to right, 
+        hsl(195, 100%, 45%) 0%, 
+        hsl(0, 100%, 45%) 25%, 
+        hsl(30, 100%, 45%) 50%, 
+        hsl(57, 100%, 45%) 75%, 
+        hsl(116, 100%, 45%) 100%);
+    padding: 10px;
+    border: none;
+    color: #fff;
+    font-size: 30px;
+    border-radius: 15px;
+    font-family: Kristal;
+    transition: all 0.1s ease-in;
+}
+button#exit_check_btn:active {
+    margin-top: 20px;
+    background-color: rgb(0, 121, 162);
+    padding: 10px;
+    border: none;
+    color: #fff;
+    font-size: 30px;
+    border-radius: 7px;
+    font-family: Kristal;
+    transition: all 0.1s ease-in;
+}

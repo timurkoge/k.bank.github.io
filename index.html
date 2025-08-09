@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>К-банк</title>
+	<script src="https://unpkg.com/@bitjson/qr-code/dist/qr-code.js"></script>
+	
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div id="login">
+    <form id="login_form">
+		<img src="images\icon.png" alt="" style="width: 200px;">
+        <p class="input">Номер телефона: <input type="text" value="+24 (" name="phone"></p>
+        <p class="input">Пароль: <input type="password" value="" name="password"></p>
+        <button type="submit" id="login_btn">Войти</button>
+    </form>
+	</div>
+
+	<div id="main">
+		<header class="header">
+		<div class="container">
+			<div class="header--inner">
+				<div class="header--img">
+					<img class="header--icon" src="images\icon.png" alt="">
+				</div>
+				<div class="header--menu">
+					<nav class="header--nav">
+						<ul class="header--list">
+							<li class="header--menu_item">
+								<a href="#my_account" class="header--menu_item--link">Мой счет</a>
+							</li>
+
+							<li class="header--menu_item">
+								<a href="#opperations" class="header--menu_item--link">Операции</a>
+							</li>
+
+							<li class="header--menu_item">
+								<a href="#opperation" class="header--menu_item--link">Перевод</a>
+							</li>
+														
+							<li class="header--menu_item">
+								<a href="#group" class="header--menu_item--link">Группа</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+				<div class="header--user_autentification_menu"></div>
+			</div>
+		</div>
+	</header>
+
+
+
+
+		<main>
+				<div id="my_account" class="block">
+						<div class="bank_account">
+								<h2 class="description">Мой счет</h2>
+								<div class="card_info">
+										<div class="card">
+												<img class="card_image" src="images\card.png" alt="">
+										</div>
+										<div class="card_sum">
+												<h2 id="card_ballance">1000$</h2>
+												<p>Ваш основной счет в К-банке</p>
+										</div>
+								</div>
+						</div>            
+				</div>
+
+
+				<div id="opperations" class="block">
+						<h2 class="description">Операции по счету</h2>
+						<div class="opperations_info">
+								<ul class="opperations_container">
+										
+								</ul>
+						</div>
+						
+				</div>
+
+
+				<div id="opperation" class="block">
+						<h2 class="description">Перевод</h2>
+						<div class="opperation">
+								<form id="opperation_form">
+										<p class="input">Номер телефона: <input type="text" value="+ 24 (" name="transfer_phone"></p>
+										<p class="input">Сумма: <input type="number" value="0" name="transfer_sum"></p>
+										<button class="transfer" type="submit">Перевести</button>
+								</form>
+						</div>
+				</div>
+
+
+				<div id="group" class="block">
+						<h2 class="description">Группа</h2>
+						<p>Полезная информация, новости, общение и викторины. Перейдите по коду или <a href="https://t.me/+_Eig0U0BkLtlNjJi" class="link gradient-text">ссылке</a> и все.</p>
+						<qr-code value="https://t.me/+_Eig0U0BkLtlNjJi"><img slot="icon" class="qr_img" viewBox="0 0 50 50" src="images\icon.png"></qr-code>
+				</div>
+		</main>
+	</div>
+
+
+	<div class="check">
+		<div class="check_block">
+			<h2 class="description">Чек</h2>
+			<table class="check_table">
+				
+				<tr>
+					<th class="check_table_1">Отправитель</th>
+					<th class="check_table_2" id="t1"></th>
+				</tr>
+				<tr>
+					<th class="check_table_1">Получатель</th>
+					<th class="check_table_2" id="t2"></th>
+				</tr>
+				<tr>
+					<th class="check_table_1">Сумма</th>
+					<th class="check_table_2" id="s"></th>
+				</tr>
+				<tr>
+					<th class="check_table_1">Время</th>
+					<th class="check_table_2" id="t"></th>
+				</tr>
+			</table>
+			<button id="exit_check_btn">Закрыть</button>
+		</div>
+	</div>
+
+
+	<script src="auth.js"></script>
+	<script src="main.js"></script>
+</body>
+</html>
