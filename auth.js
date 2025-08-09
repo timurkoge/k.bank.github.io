@@ -52,12 +52,10 @@ document.getElementById('login_form').addEventListener('submit', function(event)
         localStorage.setItem('authenticated', 'true');
         localStorage.setItem('currentUser', phone);
         
-        // Очищаем меню перед добавлением нового
         const authMenu = document.querySelector('.header--user_autentification_menu');
         authMenu.innerHTML = '';
         authMenu.insertAdjacentHTML('beforeend', menu[phone]);
         
-        // Добавляем обработчик для новой кнопки выхода
         document.querySelector('.exit_btn').addEventListener('click', function() {
             localStorage.removeItem('authenticated');
             localStorage.removeItem('currentUser');
@@ -69,12 +67,11 @@ document.getElementById('login_form').addEventListener('submit', function(event)
         this.password.focus();
     }
     
-        update()
+    update();
 });
 
 window.addEventListener('DOMContentLoaded', function() {
     if (localStorage.getItem('authenticated') === 'true') {
-        
         const phone = localStorage.getItem('currentUser');
         if (phone && menu[phone]) {
             document.getElementById('login').style.display = 'none';
@@ -93,6 +90,6 @@ window.addEventListener('DOMContentLoaded', function() {
             localStorage.removeItem('authenticated');
             localStorage.removeItem('currentUser');
         }
-        update()
+        update();
     }
 });
