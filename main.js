@@ -1,4 +1,9 @@
-// Загрузка данных из localStorage или использование значений по умолчанию
+function saveAllData() {
+    localStorage.setItem('user_info', JSON.stringify(user_info));
+    localStorage.setItem('last_save', new Date().toISOString());
+}// Загрузка данных из localStorage или использование значений по умолчанию
+
+
 let user_info = JSON.parse(localStorage.getItem('user_info')) || {
     "Тимур": {"ballance": 15000, "operations": []},
     "Карим": {"ballance": 18000, "operations": []},
@@ -38,12 +43,16 @@ function update() {
                         </div>
                     `;
                     operationsContainer.appendChild(newOperation);
+
+                    saveAllData();
                 });
             } else {
                 const noOperations = document.createElement("h3");
                 noOperations.style.cssText = 'color: #d2d2d2; text-align: center;';
                 noOperations.innerText = "Нет операций";
                 operationsContainer.appendChild(noOperations);
+                    
+                saveAllData();
             }
         } else {
             console.error('Пользователь не найден');
@@ -100,6 +109,7 @@ document.getElementById("opperation_form").addEventListener("submit", function(e
     update();
     openCheck(userName, name[transferPhone], transferSum, operationTime);
     this.reset();
+    saveAllData();
 });
 
 function getFormattedTime() {
@@ -119,4 +129,39 @@ function closeCheck() {
     document.querySelector(".check").style.display = "none";
 }
 
-document.getElementById("exit_check_btn").addEventListener('click', closeCheck);
+document.getElementById("exit_check_btn").addEventListener('click', closeCheck());
+
+
+
+
+
+
+// Гамбургер-меню
+const hamburgerMenu = document.querySelector('.hamburger-menu');
+const hamburgerIcon = document.querySelector('.hamburger-icon');
+const menuBackdrop = document.querySelector('.menu-backdrop');
+
+// Открытие/закрытие меню
+hamburgerIcon.addEventListener('click', function(e) {
+    e.stopPropagation();
+    hamburgerMenu.classList.toggle('active');
+});
+
+// Закрытие при клике на фон
+menuBackdrop.addEventListener('click', function() {
+    hamburgerMenu.classList.remove('active');
+});
+
+// Закрытие при клике на пункт меню
+document.querySelectorAll('.hamburger-nav a').forEach(link => {
+    link.addEventListener('click', () => {
+        hamburgerMenu.classList.remove('active');
+    });
+});
+
+// Закрытие при клике вне меню
+document.addEventListener('click', function(e) {
+    if (!e.target.closest('.hamburger-menu') && hamburgerMenu.classList.contains('active')) {
+        hamburgerMenu.classList.remove('active');
+    }
+});
