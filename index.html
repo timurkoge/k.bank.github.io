@@ -19,12 +19,36 @@
     </div>
 
     <div id="main">
+        
         <header class="header">
             <div class="container">
                 <div class="header--inner">
                     <div class="header--img">
                         <img class="header--icon" src="icon.png" alt="">
                     </div>
+                    
+                    <!-- Гамбургер-меню -->
+                    <div class="hamburger-menu">
+                        <div class="hamburger-icon">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        
+                        <div class="menu-backdrop"></div>
+                        <nav class="hamburger-nav">
+                            <ul>
+                                <li><a href="#my_account">Мой счет</a></li>
+                                <li><a href="#opperations">Операции</a></li>
+                                <li><a href="#opperation">Перевод</a></li>
+                                <li><a href="#group">Группа</a></li>
+                                <li><div class="hamburger--user_autentification_menu o1"></div></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    
+                    <!-- Обычное меню -->
                     <div class="header--menu">
                         <nav class="header--nav">
                             <ul class="header--list">
@@ -40,10 +64,12 @@
                                 <li class="header--menu_item">
                                     <a href="#group" class="header--menu_item--link">Группа</a>
                                 </li>
+                                <li><div class="header--user_autentification_menu o2"></div></li>
                             </ul>
                         </nav>
                     </div>
-                    <div class="header--user_autentification_menu"></div>
+                    
+                    
                 </div>
             </div>
         </header>
@@ -75,7 +101,7 @@
                 <h2 class="description">Перевод</h2>
                 <div class="opperation">
                     <form id="opperation_form">
-                        <p class="input">Номер телефона: <input type="text" value="+ 24 (" name="transfer_phone"></p>
+                        <p class="input">Номер телефона: <input type="text" value="+24 (" name="transfer_phone"></p>
                         <p class="input">Сумма: <input type="number" value="0" name="transfer_sum"></p>
                         <button class="transfer" type="submit">Перевести</button>
                     </form>
