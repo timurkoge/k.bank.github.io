@@ -156,7 +156,117 @@ button#login_btn:active {
 
 /*---------------------------- header ----------------------------*/
 
+/* Гамбургер-меню */
+.hamburger-menu {
+    display: none;
+    position: relative;
+    z-index: 100;
+    margin-left: auto;
+    padding-right: 20px;
+}
 
+.hamburger-icon {
+    width: 30px;
+    height: 38px; /* Увеличиваем высоту для 4 полосок */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 6px 0;
+}
+
+.hamburger-icon span {
+    display: block;
+    width: 100%;
+    min-height: 3px;
+    background: #000;
+    margin: auto 0;
+    transition: all 0.3s ease;
+}
+
+.hamburger-nav {
+    position: fixed;
+    top: 200px;
+    right: 30px;
+    box-shadow: 0px 7.5px 10px rgba(28, 26, 26, 0.5);
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #fcfcfc;
+    margin-bottom: 50px;
+    width: 250px;
+    display: none;
+    z-index: 99;
+}
+
+.hamburger-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: large;
+}
+
+.hamburger-nav li {
+    font-size: large;
+}
+
+.hamburger-nav li a {
+    color: #000;
+    text-decoration: none;
+    display: block;
+    padding: 12px 0;
+    font-size: 30px;
+    border-bottom: 1px solid #eee;
+}
+.hamburger-nav li a:hover {
+    color: #000;
+    text-decoration: none;
+    display: block;
+    padding: 12px 0;
+    font-size: larger;
+    border-bottom: 1px solid #eee;
+}
+
+.hamburger-nav li:last-child a {
+    border-bottom: none;
+}
+
+.hamburger-menu.active .hamburger-nav {
+    display: block;
+}
+
+/* Фон при открытом меню */
+.menu-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 98;
+    display: none;
+}
+
+.hamburger-menu.active .menu-backdrop {
+    display: block;
+}
+
+
+.hamburger--user_autentification_menu {
+	align-items: center;
+    display: flex;
+    justify-content: space-around;
+    gap: 0 10px;
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 1240px) {
+    .hamburger-menu {
+        display: flex;
+    }
+    .header--menu {
+        display: none;
+    }
+}
 
 a {
 	text-decoration: none;
