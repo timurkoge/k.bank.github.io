@@ -52,7 +52,11 @@ document.getElementById('login_form').addEventListener('submit', function(event)
         localStorage.setItem('authenticated', 'true');
         localStorage.setItem('currentUser', phone);
         
-        const authMenu = document.querySelector('.header--user_autentification_menu');
+        let authMenu = document.querySelector('.o1');
+        authMenu.innerHTML = '';
+        authMenu.insertAdjacentHTML('beforeend', menu[phone]);
+
+        authMenu = document.querySelector('.o2');
         authMenu.innerHTML = '';
         authMenu.insertAdjacentHTML('beforeend', menu[phone]);
         
@@ -77,7 +81,11 @@ window.addEventListener('DOMContentLoaded', function() {
             document.getElementById('login').style.display = 'none';
             document.getElementById('main').style.display = 'block';
             
-            const authMenu = document.querySelector('.header--user_autentification_menu');
+            let authMenu = document.querySelector('.o1');
+            authMenu.innerHTML = '';
+            authMenu.insertAdjacentHTML('beforeend', menu[phone]);
+
+            authMenu = document.querySelector('.o2');
             authMenu.innerHTML = '';
             authMenu.insertAdjacentHTML('beforeend', menu[phone]);
             
