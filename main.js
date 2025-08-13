@@ -3,6 +3,17 @@ function saveAllData() {
     localStorage.setItem('last_save', new Date().toISOString());
 }// Загрузка данных из localStorage или использование значений по умолчанию
 
+function clearAllOperations() {
+    for (const user in user_info) {
+        if (user_info.hasOwnProperty(user)) {
+            user_info[user].operations = []; // Очищаем массив операций
+        }
+    }
+    saveAllData(); // Сохраняем изменения
+    update();      // Обновляем интерфейс
+    alert("Все операции очищены!");
+}
+
 
 let user_info = JSON.parse(localStorage.getItem('user_info')) || {
     "Тимур": {"ballance": 15000, "operations": []},
@@ -61,6 +72,7 @@ function update() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+    clearAllOperations
     document.querySelector(".check").style.display = "none";
     update();
 });
@@ -165,3 +177,4 @@ document.addEventListener('click', function(e) {
         hamburgerMenu.classList.remove('active');
     }
 });
+
