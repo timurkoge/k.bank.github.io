@@ -1,18 +1,7 @@
-function clearAllOperations() {
-    for (const user in user_info) {
-        if (user_info.hasOwnProperty(user)) {
-            user_info[user].operations = []; // Очищаем массив операций
-        }
-    }
-    saveAllData(); // Сохраняем изменения
-    update();      // Обновляем интерфейс
-    alert("Все операции очищены!");
-}
-
 function saveAllData() {
     localStorage.setItem('user_info', JSON.stringify(user_info));
     localStorage.setItem('last_save', new Date().toISOString());
-}// Загрузка данных из localStorage или использование значений по умолчанию
+}
 
 
 let user_info = JSON.parse(localStorage.getItem('user_info')) || {
@@ -22,14 +11,16 @@ let user_info = JSON.parse(localStorage.getItem('user_info')) || {
     "Артур": {"ballance": 10882, "operations": []},
 };
 
-// Сохранение данных в localStorage
-function saveUserData() {
-    localStorage.setItem('user_info', JSON.stringify(user_info));
-}
 
 function update() {
     if (localStorage.getItem('authenticated') === 'true') {
+        
         const phone = localStorage.getItem('currentUser');
+        if (!phone || !name[phone]) {
+            console.error('Пользователь не найден');
+            return;
+        }
+        
         const userName = name[phone];
         
         if (userName && user_info[userName]) {
@@ -72,7 +63,6 @@ function update() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    clearAllOperations()
     document.querySelector(".check").style.display = "none";
     update();
 });
@@ -117,7 +107,7 @@ document.getElementById("opperation_form").addEventListener("submit", function(e
     user_info[userName].operations.push([name[transferPhone], "m", transferSum]);
     user_info[name[transferPhone]].operations.push([userName, "p", transferSum]);
     
-    saveUserData();
+    saveAllData();
     update();
     openCheck(userName, name[transferPhone], transferSum, operationTime);
     this.reset();
@@ -141,7 +131,7 @@ function closeCheck() {
     document.querySelector(".check").style.display = "none";
 }
 
-document.getElementById("exit_check_btn").addEventListener('click', closeCheck());
+document.getElementById("exit_check_btn").addEventListener('click', closeCheck);
 
 
 
@@ -177,6 +167,3 @@ document.addEventListener('click', function(e) {
         hamburgerMenu.classList.remove('active');
     }
 });
-
-
-
