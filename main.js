@@ -1,8 +1,3 @@
-function saveAllData() {
-    localStorage.setItem('user_info', JSON.stringify(user_info));
-    localStorage.setItem('last_save', new Date().toISOString());
-}// Загрузка данных из localStorage или использование значений по умолчанию
-
 function clearAllOperations() {
     for (const user in user_info) {
         if (user_info.hasOwnProperty(user)) {
@@ -13,6 +8,11 @@ function clearAllOperations() {
     update();      // Обновляем интерфейс
     alert("Все операции очищены!");
 }
+
+function saveAllData() {
+    localStorage.setItem('user_info', JSON.stringify(user_info));
+    localStorage.setItem('last_save', new Date().toISOString());
+}// Загрузка данных из localStorage или использование значений по умолчанию
 
 
 let user_info = JSON.parse(localStorage.getItem('user_info')) || {
@@ -177,5 +177,6 @@ document.addEventListener('click', function(e) {
         hamburgerMenu.classList.remove('active');
     }
 });
+
 
 
