@@ -72,7 +72,7 @@ function update() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    clearAllOperations
+    clearAllOperations()
     document.querySelector(".check").style.display = "none";
     update();
 });
@@ -177,4 +177,5 @@ document.addEventListener('click', function(e) {
         hamburgerMenu.classList.remove('active');
     }
 });
+
 
